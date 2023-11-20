@@ -1,4 +1,5 @@
 import { Routes, Route, Outlet, Link } from "react-router-dom";
+import { Sidebar } from "./components";
 
 export default function App() {
   return (
@@ -9,7 +10,6 @@ export default function App() {
           <Route index element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="dashboard" element={<Dashboard />} />
-
           <Route path="*" element={<NoMatch />} />
         </Route>
       </Routes>
@@ -20,23 +20,7 @@ export default function App() {
 function Layout() {
   return (
     <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
-          <li>
-            <Link to="/nothing-here">Nothing Here</Link>
-          </li>
-        </ul>
-      </nav>
-
+      <Sidebar/>
       <hr />
       <Outlet />
     </div>
@@ -53,7 +37,7 @@ function Home() {
 
 function About() {
   return (
-    <div>
+    <div className="mt-44">
       <h2>About</h2>
     </div>
   );
